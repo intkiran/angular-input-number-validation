@@ -1,0 +1,17 @@
+<div class="container">
+	<h2>{{ heading | titlecase }}</h2>
+	<form [formGroup]="yearForm">
+		<input type="text" formControlName="year" />
+		<div *ngIf="!yearForm.controls['year'].valid && yearForm.controls['year'].touched">
+			<div *ngIf="yearForm.controls['year'].errors.required" style="background-color: red">
+				Year is required
+			</div>
+			<div *ngIf="yearForm.controls['year'].errors.pattern" style="background-color: red">
+				Only Numbers are allowed
+			</div>
+		</div>
+	</form>
+	<br>
+
+	<button type="submit ">Submit</button>
+</div>
